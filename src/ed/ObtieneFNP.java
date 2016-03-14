@@ -29,9 +29,9 @@ public class ObtieneFNP extends Thread {
     }
     
     public void setDatos(String Formula, String Atomicas, String FNPD, String FNPC) {
-        EDUI.fnAtom = Atomicas;
-        EDUI.fnCP = FNPC;
-        EDUI.fnDP = FNPD;       
+        guiNueva.fnAtom = Atomicas;
+        guiNueva.fnCP = FNPC;
+        guiNueva.fnDP = FNPD;       
     }
     
 }

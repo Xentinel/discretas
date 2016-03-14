@@ -653,6 +653,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Listo!"/>
               </Properties>
+              <Events>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="listoFNPMousePressed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="ayudaFNP">
               <Properties>

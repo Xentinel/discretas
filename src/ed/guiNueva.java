@@ -407,6 +407,11 @@ public class guiNueva extends javax.swing.JFrame {
         jScrollPane10.setViewportView(textFNDP);
 
         listoFNP.setText("Listo!");
+        listoFNP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                listoFNPMousePressed(evt);
+            }
+        });
 
         ayudaFNP.setText("Ayuda!");
         ayudaFNP.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -526,6 +531,15 @@ public class guiNueva extends javax.swing.JFrame {
         atomicasTVerdad.setText(tablaAtom);
         tipoProposicion.setText(tablaTipo);
     }//GEN-LAST:event_listoPTablaVerdadMousePressed
+
+    private void listoFNPMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listoFNPMousePressed
+        // TODO add your handling code here:
+        fnp.form = entradaFNP.getText();
+        fnp.run();
+        atomicasFNP.setText(fnAtom);
+        textFNCP.setText(fnCP);
+        textFNDP.setText(fnDP);
+    }//GEN-LAST:event_listoFNPMousePressed
 
     /**
      * @param args the command line arguments
