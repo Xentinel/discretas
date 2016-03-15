@@ -528,17 +528,18 @@ public class guiNueva extends javax.swing.JFrame {
         tablas.formu = tablaEntrada.getText();
         tablas.run();
         tablaVerdad.setText(tablaRes);
-        atomicasTVerdad.setText(tablaAtom);
-        tipoProposicion.setText(tablaTipo);
+        //atomicasTVerdad.setText(tablaAtom);
+        //tipoProposicion.setText(tablaTipo);
     }//GEN-LAST:event_listoPTablaVerdadMousePressed
 
     private void listoFNPMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listoFNPMousePressed
         // TODO add your handling code here:
-        fnp.form = entradaFNP.getText();
+        /*fnp.form = entradaFNP.getText();
         fnp.run();
         atomicasFNP.setText(fnAtom);
         textFNCP.setText(fnCP);
         textFNDP.setText(fnDP);
+        */
     }//GEN-LAST:event_listoFNPMousePressed
 
     /**
