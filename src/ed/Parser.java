@@ -179,9 +179,21 @@ public class Parser {
         }
         
     }
-    
-    public String[] obtieneExpresiones() {
-        return expresiones;
+
+    String romperCadena(String salida) {
+        int salidaLength = salida.length();
+        int H1 = salida.lastIndexOf("H1");
+        salida = salida.substring(H1,salidaLength);
+        salida = salida.replace("H1:", " ");
+        salida = salida.replace(":", "^");
+        for (int i = 1; i < 10; i++) {
+            if(salida.contains("H"+i)) {
+            salida = salida.replace("H"+i, "");
+            }
+        }
+        salida = salida.replace("\n","");
+        System.out.println("Cadena rota: " + salida);
+        return salida;
     }
-    
+        
 }
