@@ -69,6 +69,7 @@ public class guiNueva extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -78,6 +79,7 @@ public class guiNueva extends javax.swing.JFrame {
         salidaSimbolico = new javax.swing.JTextArea();
         convertirNaturalSimbolico = new javax.swing.JButton();
         ayudaSimbolico = new javax.swing.JButton();
+        aTablaVdd = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tablaEntrada = new javax.swing.JTextArea();
@@ -139,6 +141,9 @@ public class guiNueva extends javax.swing.JFrame {
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ed/static/escudos.jpg"))); // NOI18N
 
+        jLabel20.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel20.setText("Erik Torres Díaz");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -153,8 +158,11 @@ public class guiNueva extends javax.swing.JFrame {
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 585, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
-                    .addComponent(jLabel6))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(137, 137, 137)
+                        .addComponent(jLabel6))
+                    .addComponent(jLabel20))
+                .addContainerGap(169, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(259, 259, 259)
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -175,12 +183,14 @@ public class guiNueva extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel20)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                .addComponent(jLabel9))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jTabbedPane4.addTab("Información", jPanel1);
@@ -223,6 +233,19 @@ public class guiNueva extends javax.swing.JFrame {
             }
         });
 
+        aTablaVdd.setText("Tabla de Verdad");
+        aTablaVdd.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                aTablaVddMouseClicked(evt);
+            }
+        });
+        aTablaVdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aTablaVddActionPerformed(evt);
+            }
+        });
+        aTablaVdd.setVisible(false);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -230,7 +253,7 @@ public class guiNueva extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(jLabel10)
-                .addContainerGap(281, Short.MAX_VALUE))
+                .addContainerGap(291, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
@@ -243,6 +266,8 @@ public class guiNueva extends javax.swing.JFrame {
                         .addGap(21, 21, 21)
                         .addComponent(jLabel11)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(aTablaVdd)
+                        .addGap(18, 18, 18)
                         .addComponent(ayudaSimbolico)
                         .addGap(18, 18, 18)
                         .addComponent(convertirNaturalSimbolico)))
@@ -264,7 +289,8 @@ public class guiNueva extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(ayudaSimbolico)
-                            .addComponent(convertirNaturalSimbolico))
+                            .addComponent(convertirNaturalSimbolico)
+                            .addComponent(aTablaVdd))
                         .addGap(23, 23, 23)))
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
                 .addContainerGap())
@@ -505,7 +531,8 @@ public class guiNueva extends javax.swing.JFrame {
         entrada = textoSimbolicoEntrada.getText();
         salida = parser.parse(entrada);
         salidaSimbolico.setText(salida);
-        expresiones = parser.obtieneExpresiones();
+        System.out.println(salida);
+        aTablaVdd.setVisible(true);
     }//GEN-LAST:event_convertirNaturalSimbolicoMousePressed
 
     private void ayudaSimbolicoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ayudaSimbolicoMousePressed
@@ -540,6 +567,21 @@ public class guiNueva extends javax.swing.JFrame {
         textFNCP.setText(fnCP);
         textFNDP.setText(fnDP);
     }//GEN-LAST:event_listoFNPMousePressed
+
+    private void aTablaVddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aTablaVddActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_aTablaVddActionPerformed
+
+    private void aTablaVddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aTablaVddMouseClicked
+        // TODO add your handling code here:
+        String cadenaParaTablas = parser.romperCadena(salida);
+        tablaEntrada.setText(cadenaParaTablas);
+        tablas.formu = cadenaParaTablas;
+        tablas.run();
+        tablaVerdad.setText(tablaRes);
+        atomicasTVerdad.setText(tablaAtom);
+        tipoProposicion.setText(tablaTipo);
+    }//GEN-LAST:event_aTablaVddMouseClicked
 
     /**
      * @param args the command line arguments
@@ -577,6 +619,7 @@ public class guiNueva extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton aTablaVdd;
     private javax.swing.JTextArea atomicasFNP;
     private javax.swing.JTextArea atomicasTVerdad;
     private javax.swing.JButton ayudaFNP;
@@ -596,6 +639,7 @@ public class guiNueva extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
